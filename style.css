@@ -1,0 +1,116 @@
+body {
+  margin: 0;
+  font-family: sans-serif;
+  background-color: #f0f0f0;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+button {
+  padding: 15px 30px;
+  font-size: 18px;
+  border: none;
+  border-radius: 10px;
+  background-color: #ff4d6d;
+  color: white;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+button:hover {
+  background-color: #e0435f;
+}
+
+.heart {
+  position: relative;
+  width: 100px;
+  height: 90px;
+  transform: rotate(-45deg);
+  margin-top: 30px;
+  animation: explode-then-pulse 2s forwards, pulse 1s infinite 2s;
+}
+
+.heart::before,
+.heart::after,
+.heart {
+  background-color: red;
+}
+
+.heart::before,
+.heart::after {
+  content: "";
+  position: absolute;
+  width: 100px;
+  height: 90px;
+  border-radius: 50%;
+}
+
+.heart::before {
+  top: -45px;
+  left: 0;
+}
+
+.heart::after {
+  top: 0;
+  left: 45px;
+}
+
+@keyframes explode-then-pulse {
+  0% {
+    transform: rotate(-45deg) scale(1);
+    opacity: 1;
+  }
+  25% {
+    transform: rotate(-45deg) scale(5);
+    opacity: 0;
+  }
+  26% {
+    transform: rotate(-45deg) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: rotate(-45deg) scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: rotate(-45deg) scale(1);
+  }
+  50% {
+    transform: rotate(-45deg) scale(1.1);
+  }
+}
+
+.gif {
+  margin-top: 20px;
+  max-width: 300px;
+  border-radius: 10px;
+}
+
+.message {
+  margin-top: 20px;
+  font-size: 24px;
+  color: #ff4d6d;
+  font-weight: bold;
+  opacity: 0;
+  animation: fadeIn 1s forwards;
+  animation-delay: 2s;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+.hidden {
+  display: none;
+}
